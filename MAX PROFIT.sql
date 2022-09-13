@@ -3,6 +3,7 @@ Find the most profitable company in the financial sector of the entire world alo
 
 SQL QUERY FOR ABOVE STATEMENT:
 
-select company,continent
+select continent,company
 from forbes_global_2010_2014
-WHERE profits = (SELECT MAX(profits) FROM forbes_global_2010_2014 );
+where sector='Financials' and 
+profits in (select max(profits) from forbes_global_2010_2014 )
